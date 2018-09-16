@@ -55,7 +55,7 @@ public class FourthActivity extends ListActivity {
                         startActivity(b);
                         break;
                     case "Whats Cool":
-                        Intent c = new Intent("com.robboapps.ottawa4kidstest.CoolPageFragment");
+                        Intent c = new Intent("com.robboapps.ottawa4kidstest.WhatsCoolActivity");
                         //---use putExtra() to send the ThirdActivity choice to the WhatsCool Activity---
                         c.putExtra("str1", getIntent().getStringExtra("str1"));
                         startActivity(c);

@@ -22,19 +22,18 @@ public class MainActivity extends ListActivity {
     //how to grab context from MainActivity and use it in other non activity classes (?)
 
 
-
-    public MainActivity() {
+   //public MainActivity(Context context) {
         // Required empty public constructor in order to access methods in the MainActivity Class
+       //Context context = this;
+    //}
 
-    }
-
-    Context context;
+    //Context context;
     //context = this.getBaseContext();
 
-    public Context grabContext() {
-    context = this.getBaseContext();
-    return context;
-    }
+   // public Context grabContext() {
+    //context = this.getBaseContext();
+    //return context;
+    //}
 
 
     @Override

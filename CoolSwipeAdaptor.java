@@ -15,19 +15,20 @@ public class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
     int numImages;
     String[] imgList;
 
+    // get Context from WhatsCoolActivity when it creates a new CoolSwipeAdaptor Class, and assign to
+    // context2 as it is required in order to use Asset Manager methods
     public CoolSwipeAdaptor(FragmentManager fm, Context context) {
-        super(fm);
-        context2 = context;
+       super(fm);
+       context2 = context;
 
     }
 
     @Override
     public Fragment getItem(int i) {
-        Fragment fragment = new CoolPageFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("count", i + 1);
-        fragment.setArguments(bundle);
-        return fragment;
+        if(i <= imgList.length)
+            return CoolPageFragment.newInstance(i);
+        else
+            return null;
     }
 
         @Override

@@ -15,6 +15,7 @@ public class WhatsCoolActivity extends FragmentActivity {
     ViewPager viewPager;
     //static Context context;
     //context = this.getbaseContext;
+    //Context context = this;
     Context context = this;
     //Context context = Fragment.getContext();
     //Context context;
