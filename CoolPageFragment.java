@@ -99,6 +99,7 @@ public class CoolPageFragment extends Fragment {
         //imageView.setImageResource(R.drawable.b);
         //Bundle bundle = getArguments();
         //String message = Integer.toString(bundle.getInt("count"));
+        //push check
 
         View view = inflater.inflate(R.layout.fragment_cool_page, container, false);
         //ImageView coolPhotos = (ImageView) view.findViewById(R.id.imageView); no need to cast
