@@ -87,10 +87,12 @@ public class CoolPageFragment extends Fragment {
             System.out.println("XANADU 9" + Arrays.toString(imgList));
             numImages = imgList.length;
             System.out.println("XANADU10" + numImages);
+            String filename1 = "trainmuseum/" + imgList[0];
+            InputStream is1 = assetManager.open(filename1);
+            //InputStream is = assetManager.open("trainmuseum/c.png");
+            //InputStream is = assetManager.open("c");
 
-            InputStream is = assetManager.open("trainmuseum/sam_ralph - Copy.png");
-
-            bitmap = BitmapFactory.decodeStream(is);
+            bitmap = BitmapFactory.decodeStream(is1);
         }catch (IOException e) {
             e.printStackTrace();
         }

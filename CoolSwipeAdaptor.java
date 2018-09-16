@@ -31,10 +31,8 @@ public class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
             return null;
     }
 
-        @Override
-        public int getCount() {
-
-
+    @Override
+    public int getCount() {
             try {
 
                 AssetManager assetManager = context2.getApplicationContext().getAssets();
