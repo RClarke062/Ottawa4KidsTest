@@ -94,7 +94,7 @@ public class CoolPageFragment extends Fragment {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        imageView.setImageBitmap(bitmap);
+        //imageView.setImageBitmap(bitmap);
         //use this if files are in 'drawable' folder
         //imageView.setImageResource(R.drawable.b);
         //Bundle bundle = getArguments();
@@ -105,14 +105,14 @@ public class CoolPageFragment extends Fragment {
         //ImageView coolPhotos = (ImageView) view.findViewById(R.id.imageView); no need to cast
         // view.findViewById by putting (ImageView) in front of it according to Android Studio
         // even through the stackoverflow had it
-        ImageView coolPhotos = view.findViewById(R.id.imageView);
+       imageView = view.findViewById(R.id.imageView);
         switch (mPosition){
             case 0:
-                coolPhotos = imageView;
+                imageView.setImageBitmap(bitmap);
             case 1:
-                coolPhotos = imageView;
+                imageView.setImageBitmap(bitmap);
             case 2:
-                coolPhotos = imageView;
+                imageView.setImageBitmap(bitmap);
         }
         return view;
     }
