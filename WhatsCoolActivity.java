@@ -25,10 +25,22 @@ public class WhatsCoolActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_whats_cool);
         viewPager = findViewById(R.id.view_pager);
-        CoolSwipeAdaptor swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager(), context);
-
+        //CoolSwipeAdaptor swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager(), context);
+        CoolSwipeAdaptor swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdaptor);
 
         //Toast.makeText(this, getIntent().getStringExtra("str1"), Toast.LENGTH_SHORT).show();
+    }
+// from: https://developer.android.com/training/animation/screen-slide#java
+    @Override
+    public void onBackPressed() {
+        if (viewPager.getCurrentItem() == 0) {
+            // If the user is currently looking at the first step, allow the system to handle the
+            // Back button. This calls finish() on this activity and pops the back stack.
+            super.onBackPressed();
+        } else {
+            // Otherwise, select the previous step.
+            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        }
     }
 }

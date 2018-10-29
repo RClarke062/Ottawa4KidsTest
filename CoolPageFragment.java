@@ -2,6 +2,7 @@ package com.robboapps.ottawa4kidstest;
 
 
 import android.app.ListActivity;
+import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -16,7 +17,11 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+
+//import static android.media.CamcorderProfile.get;
+import static java.lang.String.valueOf;
 
 
 /**
@@ -28,7 +33,10 @@ public class CoolPageFragment extends Fragment {
     //AssetManager assetManager = getContext().getAssets();
     Bitmap bitmap;
     Integer numImages;
-    private int mPosition;
+    String[] imgList;
+    //should mPosition be private (was in stackoverflow example)
+    int mPosition;
+    ArrayList<Bitmap> picString = new ArrayList<>();
 //empty constructor to make the class available to other classes
     public CoolPageFragment(){
 
@@ -41,29 +49,6 @@ public class CoolPageFragment extends Fragment {
         frag.setArguments(args);
         return frag;
     }
-
-    //Context thiscontext;
-    //@Override
-   // public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //thiscontext = container.getContext();
-    //}
-    //Context context2 = getMainActivity.grabContext();
-    //private Context context2;
-    //MainActivity getMainActivity = new MainActivity();
-    //context2 = getMainActivity.grabContext();
-
-    //public CoolPageFragment() {
-        //Required empty public constructor
-        //Context context;
-        //context = MainActivity.getMainActivity.grabContext();
-    //}
-// how to call an intent from a non activity class??????
-    //Intent intent = new Intent(context, FourthActivity.class)
-            //.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    //context.startActivity(intent);
-    //String path = getIntent().getStringExtra("str1");
-
-    //ListActivity activity = new MainActivity(getContext());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,12 +66,23 @@ public class CoolPageFragment extends Fragment {
 
         //use getActivity with getApplicationContext to access context based methods such as
         //getAssets in a non activity class
+
+        //old try block that works
+/*
         try{
             AssetManager assetManager = getActivity().getApplicationContext().getAssets();
             String[] imgList = assetManager.list("trainmuseum");
             System.out.println("XANADU 9" + Arrays.toString(imgList));
             numImages = imgList.length;
-            System.out.println("XANADU10" + numImages);
+            //for(int i = 0; i < imgList.length; i++){
+            //picString.add(String.valueOf(i));
+                //picString.add("trainmuseum/" + imgList[i]);
+            //System.out.print("XANADU15  " + picString.get(i) + " ");
+            //String fred = picString.get(i);
+
+
+
+            System.out.println("XANADU10" + "  " + numImages);
             String filename1 = "trainmuseum/" + imgList[0];
             InputStream is1 = assetManager.open(filename1);
             //InputStream is = assetManager.open("trainmuseum/c.png");
@@ -96,6 +92,37 @@ public class CoolPageFragment extends Fragment {
         }catch (IOException e) {
             e.printStackTrace();
         }
+*/
+
+        //new try block to iterate bitmaps into the switch function
+/*
+        try{
+            AssetManager assetManager = getActivity().getApplicationContext().getAssets();
+            imgList = assetManager.list("trainmuseum");
+            System.out.println("XANADU 03" + Arrays.toString(imgList));
+            numImages = imgList.length;
+            for(int i = 0; i < imgList.length; i++){
+            //picString.add(String.valueOf(i));
+                //String filename = "trainmuseum/" + imgList[0];
+                picString.add(i, BitmapFactory.decodeStream(assetManager.open("trainmuseum/" + imgList[i])));
+            //System.out.print("XANADU15  " + picString.get(i) + " ");
+            //String fred = picString.get(i);
+            }
+
+
+            System.out.println("XANADU 04" + "  " + numImages);
+            String filename1 = "trainmuseum/" + imgList[0];
+            InputStream is1 = assetManager.open(filename1);
+            InputStream is = assetManager.open("trainmuseum/c.png");
+            //InputStream is = assetManager.open("c");
+
+            //bitmap = BitmapFactory.decodeStream(is1);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+
+*/
+
         //imageView.setImageBitmap(bitmap);
         //use this if files are in 'drawable' folder
         //imageView.setImageResource(R.drawable.b);
@@ -110,11 +137,21 @@ public class CoolPageFragment extends Fragment {
        imageView = view.findViewById(R.id.imageView);
         switch (mPosition){
             case 0:
-                imageView.setImageBitmap(bitmap);
+                //imageView.setImageBitmap(picString.get(0));
+                //imageView.setImageBitmap(bitmap);
+                imageView.setImageResource(R.drawable.b);
+                System.out.print("XANADU 05  ");
             case 1:
-                imageView.setImageBitmap(bitmap);
-            case 2:
-                imageView.setImageBitmap(bitmap);
+                //imageView.setImageBitmap(picString.get(1));
+                //imageView.setImageBitmap(bitmap);
+                imageView.setImageResource(R.drawable.c);
+                System.out.print("XANADU 06  ");
+                //default:
+                    //imageView.setImageResource(R.drawable.d);
+                    //System.out.print("XANADU 07  ");
+                //default:
+                    //imageView.setImageBitmap(picString.get(1));
+
         }
         return view;
     }
