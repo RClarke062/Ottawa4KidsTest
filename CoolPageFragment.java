@@ -135,24 +135,26 @@ public class CoolPageFragment extends Fragment {
         // view.findViewById by putting (ImageView) in front of it according to Android Studio
         // even through the stackoverflow had it
        imageView = view.findViewById(R.id.imageView);
-        switch (mPosition){
-            case 0:
+       imageView.setImageResource(R.drawable.b);
+
+       // switch (mPosition){
+            //case 0:
                 //imageView.setImageBitmap(picString.get(0));
                 //imageView.setImageBitmap(bitmap);
-                imageView.setImageResource(R.drawable.b);
-                System.out.print("XANADU 05  ");
-            case 1:
+                //imageView.setImageResource(R.drawable.b);
+                //System.out.print("XANADU 05  ");
+            //case 1:
                 //imageView.setImageBitmap(picString.get(1));
                 //imageView.setImageBitmap(bitmap);
-                imageView.setImageResource(R.drawable.c);
-                System.out.print("XANADU 06  ");
+                //imageView.setImageResource(R.drawable.c);
+                //System.out.print("XANADU 06  ");
                 //default:
                     //imageView.setImageResource(R.drawable.d);
                     //System.out.print("XANADU 07  ");
                 //default:
                     //imageView.setImageBitmap(picString.get(1));
 
-        }
+        //}
         return view;
     }
 
