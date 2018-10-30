@@ -31,16 +31,16 @@ public class CoolPageFragment extends Fragment {
 
     ImageView imageView;
     //AssetManager assetManager = getContext().getAssets();
-    Bitmap bitmap;
-    Integer numImages;
-    String[] imgList;
+    //Bitmap bitmap;
+    //Integer numImages;
+    //String[] imgList;
     //should mPosition be private (was in stackoverflow example)
     int mPosition;
-    ArrayList<Bitmap> picString = new ArrayList<>();
+    //ArrayList<Bitmap> picString = new ArrayList<>();
 //empty constructor to make the class available to other classes
-    public CoolPageFragment(){
+    //public CoolPageFragment(){
 
-    }
+    //}
 
     public static CoolPageFragment newInstance(int pos){
         CoolPageFragment frag = new CoolPageFragment();
@@ -53,7 +53,8 @@ public class CoolPageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPosition = getArguments().getInt("pos");
+        mPosition = getArguments() != null ? getArguments().getInt("pos") : 1;
+        System.out.println("XANADU 67  position is " + mPosition);
 
     }
 
