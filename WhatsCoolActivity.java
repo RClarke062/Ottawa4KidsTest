@@ -44,15 +44,7 @@ public class WhatsCoolActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int pos) {
             System.out.println("XANADU 02  POS IS " + pos);
-
-            switch (pos) {
-                case 0:
-                    return CoolPageFragment.newInstance(pos);
-                case 1:
-                    return CoolPageFragment.newInstance(pos);
-                    default:
-                        return null;
-            }
+return CoolPageFragment.newInstance(pos);
 
         }
 }
