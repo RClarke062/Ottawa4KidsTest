@@ -31,18 +31,18 @@ public class CoolPageFragment extends Fragment {
 
     ImageView imageView;
     //AssetManager assetManager = getContext().getAssets();
-    //Bitmap bitmap;
-    //Integer numImages;
-    //String[] imgList;
+    //Bitmap[] picString;
+    Integer numImages;
+    String[] imgList;
     //should mPosition be private (was in stackoverflow example)
     int mPosition;
-    //ArrayList<Bitmap> picString = new ArrayList<>();
+    ArrayList<Bitmap> picString = new ArrayList<>();
 //empty constructor to make the class available to other classes
     //public CoolPageFragment(){
 
     //}
 
-    public static CoolPageFragment newInstance(int pos){
+    public static CoolPageFragment newInstance(int pos) {
         CoolPageFragment frag = new CoolPageFragment();
         Bundle args = new Bundle();
         args.putInt("pos", pos);
@@ -96,18 +96,18 @@ public class CoolPageFragment extends Fragment {
 */
 
         //new try block to iterate bitmaps into the switch function
-/*
-        try{
+
+        try {
             AssetManager assetManager = getActivity().getApplicationContext().getAssets();
             imgList = assetManager.list("trainmuseum");
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
-            for(int i = 0; i < imgList.length; i++){
-            //picString.add(String.valueOf(i));
+            for (int i = 0; i < imgList.length; i++) {
+                //picString.add(String.valueOf(i));
                 //String filename = "trainmuseum/" + imgList[0];
                 picString.add(i, BitmapFactory.decodeStream(assetManager.open("trainmuseum/" + imgList[i])));
-            //System.out.print("XANADU15  " + picString.get(i) + " ");
-            //String fred = picString.get(i);
+                System.out.print("XANADU15  " + picString.get(i) + " ");
+                //String fred = picString.get(i);
             }
 
 
@@ -118,11 +118,10 @@ public class CoolPageFragment extends Fragment {
             //InputStream is = assetManager.open("c");
 
             //bitmap = BitmapFactory.decodeStream(is1);
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-*/
 
         //imageView.setImageBitmap(bitmap);
         //use this if files are in 'drawable' folder
@@ -135,28 +134,29 @@ public class CoolPageFragment extends Fragment {
         //ImageView coolPhotos = (ImageView) view.findViewById(R.id.imageView); no need to cast
         // view.findViewById by putting (ImageView) in front of it according to Android Studio
         // even through the stackoverflow had it
-       imageView = view.findViewById(R.id.imageView);
-       imageView.setImageResource(R.drawable.b);
+        imageView = view.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.b);
 
-       // switch (mPosition){
-            //case 0:
-                //imageView.setImageBitmap(picString.get(0));
+        switch (mPosition) {
+            case 0:
+                imageView.setImageBitmap(picString.get(0));
                 //imageView.setImageBitmap(bitmap);
                 //imageView.setImageResource(R.drawable.b);
                 //System.out.print("XANADU 05  ");
-            //case 1:
-                //imageView.setImageBitmap(picString.get(1));
+            case 1:
+                imageView.setImageBitmap(picString.get(1));
                 //imageView.setImageBitmap(bitmap);
                 //imageView.setImageResource(R.drawable.c);
                 //System.out.print("XANADU 06  ");
                 //default:
-                    //imageView.setImageResource(R.drawable.d);
-                    //System.out.print("XANADU 07  ");
-                //default:
-                    //imageView.setImageBitmap(picString.get(1));
+                //imageView.setImageResource(R.drawable.d);
+                //System.out.print("XANADU 07  ");
+            default:
+                imageView.setImageBitmap(picString.get(1));
 
-        //}
-        return view;
+                //}
+                return view;
+        }
+
     }
-
 }
