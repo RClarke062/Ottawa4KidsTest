@@ -101,13 +101,13 @@ public class CoolPageFragment extends Fragment {
 
         try {
             AssetManager assetManager = getActivity().getApplicationContext().getAssets();
-            imgList = assetManager.list(activityTranslate);
+            imgList = assetManager.list("trainmuseum");
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
             for (int i = 0; i < imgList.length; i++) {
                 //picString.add(String.valueOf(i));
                 //String filename = "trainmuseum/" + imgList[0];
-                picString.add(i, BitmapFactory.decodeStream(assetManager.open(activityTranslate + imgList[i])));
+                picString.add(i, BitmapFactory.decodeStream(assetManager.open("trainmuseum" + imgList[i])));
                 System.out.print("XANADU15  " + picString.get(i) + " ");
                 //String fred = picString.get(i);
             }
