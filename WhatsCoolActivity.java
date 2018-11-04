@@ -18,6 +18,8 @@ public class WhatsCoolActivity extends FragmentActivity {
     ViewPager viewPager;
     CoolSwipeAdaptor swipeAdaptor;
     static final int ITEMS = 2;
+    String WhichActivity;
+
     //static Context context;
     //context = this.getbaseContext;
     //Context context = this;
@@ -31,6 +33,8 @@ public class WhatsCoolActivity extends FragmentActivity {
         setContentView(R.layout.activity_whats_cool);
         viewPager = findViewById(R.id.view_pager);
         System.out.println("XANADU First");
+        WhichActivity = getIntent().getStringExtra("str1");
+        System.out.println("XANADU What was Sent" + WhichActivity);
         //CoolSwipeAdaptor swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager(), context);
         swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdaptor);

@@ -111,10 +111,10 @@ public class CoolPageFragment extends Fragment {
             }
 
 
-            System.out.println("XANADU 04" + "  " + numImages);
-            String filename1 = "trainmuseum/" + imgList[0];
-            InputStream is1 = assetManager.open(filename1);
-            InputStream is = assetManager.open("trainmuseum/c.png");
+            //System.out.println("XANADU 04" + "  " + numImages);
+            //String filename1 = "trainmuseum/" + imgList[0];
+            //InputStream is1 = assetManager.open(filename1);
+            //InputStream is = assetManager.open("trainmuseum/c.png");
             //InputStream is = assetManager.open("c");
 
             //bitmap = BitmapFactory.decodeStream(is1);
@@ -136,7 +136,12 @@ public class CoolPageFragment extends Fragment {
         // even through the stackoverflow had it
         imageView = view.findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.b);
-
+        if (mPosition == 0){
+            imageView.setImageBitmap(picString.get(0));
+        }else {
+            imageView.setImageBitmap(picString.get(1));
+        }
+/*
         switch (mPosition) {
             case 0:
                 imageView.setImageBitmap(picString.get(0));
@@ -152,11 +157,12 @@ public class CoolPageFragment extends Fragment {
                 //imageView.setImageResource(R.drawable.d);
                 //System.out.print("XANADU 07  ");
             default:
-                imageView.setImageBitmap(picString.get(1));
+                imageView.setImageBitmap(picString.get(0));
 
                 //}
-                return view;
+                //return view;
         }
-
+        */
+return view;
     }
 }
