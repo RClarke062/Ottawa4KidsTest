@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class WhatsCoolActivity extends FragmentActivity {
     ViewPager viewPager;
@@ -35,7 +36,6 @@ public class WhatsCoolActivity extends FragmentActivity {
         System.out.println("XANADU First");
         WhichActivity = getIntent().getStringExtra("str1");
         System.out.println("XANADU What was Sent" + WhichActivity);
-        //CoolSwipeAdaptor swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager(), context);
         swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdaptor);
         //viewPager.setCurrentItem(0);
@@ -74,10 +74,10 @@ public class WhatsCoolActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-/*
+
         try {
 
-                AssetManager assetManager = context2.getApplicationContext().getAssets();
+                AssetManager assetManager = getApplicationContext().getAssets();
                 imgList = assetManager.list("trainmuseum");
                 System.out.println("XANADU 02" + Arrays.toString(imgList));
                 //numImages = imgList.length;
@@ -85,7 +85,7 @@ public class WhatsCoolActivity extends FragmentActivity {
             }catch (IOException e) {
                 e.printStackTrace();
             }
-*/
+
             //return imgList.length;
             System.out.println("XANADU 01");
             return ITEMS;
