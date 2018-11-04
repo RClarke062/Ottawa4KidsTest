@@ -20,6 +20,8 @@ public class WhatsCoolActivity extends FragmentActivity {
     CoolSwipeAdaptor swipeAdaptor;
     static final int ITEMS = 2;
     String WhichActivity;
+    String[] imgList;
+    //Integer numImages;
 
     //static Context context;
     //context = this.getbaseContext;
@@ -57,7 +59,7 @@ public class WhatsCoolActivity extends FragmentActivity {
     //}
     //}
 
-    public static class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
+    public class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
         //private Context context2;
 
         //int numImages;
@@ -88,7 +90,7 @@ public class WhatsCoolActivity extends FragmentActivity {
 
             //return imgList.length;
             System.out.println("XANADU 01");
-            return ITEMS;
+            return imgList.length;
 
         }
 
