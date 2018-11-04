@@ -80,7 +80,7 @@ public class WhatsCoolActivity extends FragmentActivity {
         try {
 
                 AssetManager assetManager = getAssets();
-                imgList = assetManager.list("trainmuseum");
+                imgList = assetManager.list(WhichActivity);
                 System.out.println("XANADU 02" + Arrays.toString(imgList));
                 //numImages = imgList.length;
 
@@ -104,9 +104,9 @@ public class WhatsCoolActivity extends FragmentActivity {
             //return null;
             switch (pos) {
                 case 0:
-                    return CoolPageFragment.newInstance(0, "trainmuseum");
+                    return CoolPageFragment.newInstance(0, WhichActivity);
                 case 1:
-                    return CoolPageFragment.newInstance(1, "trainmuseum");
+                    return CoolPageFragment.newInstance(1, WhichActivity);
                     default:
                         return null;
             }
