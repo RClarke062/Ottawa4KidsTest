@@ -104,9 +104,9 @@ public class WhatsCoolActivity extends FragmentActivity {
             //return null;
             switch (pos) {
                 case 0:
-                    return CoolPageFragment.newInstance(0);
+                    return CoolPageFragment.newInstance(0, "trainmuseum");
                 case 1:
-                    return CoolPageFragment.newInstance(1);
+                    return CoolPageFragment.newInstance(1, "trainmuseum");
                     default:
                         return null;
             }

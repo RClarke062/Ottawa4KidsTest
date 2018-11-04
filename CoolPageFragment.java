@@ -34,6 +34,7 @@ public class CoolPageFragment extends Fragment {
     //Bitmap[] picString;
     Integer numImages;
     String[] imgList;
+    static String activityTranslate;
     //should mPosition be private (was in stackoverflow example)
     int mPosition;
     ArrayList<Bitmap> picString = new ArrayList<>();
@@ -42,7 +43,8 @@ public class CoolPageFragment extends Fragment {
 
     //}
 
-    public static CoolPageFragment newInstance(int pos) {
+    public static CoolPageFragment newInstance(int pos, String WhichActivity) {
+        activityTranslate = WhichActivity;
         CoolPageFragment frag = new CoolPageFragment();
         Bundle args = new Bundle();
         args.putInt("pos", pos);
@@ -99,13 +101,13 @@ public class CoolPageFragment extends Fragment {
 
         try {
             AssetManager assetManager = getActivity().getApplicationContext().getAssets();
-            imgList = assetManager.list("trainmuseum");
+            imgList = assetManager.list(activityTranslate);
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
             for (int i = 0; i < imgList.length; i++) {
                 //picString.add(String.valueOf(i));
                 //String filename = "trainmuseum/" + imgList[0];
-                picString.add(i, BitmapFactory.decodeStream(assetManager.open("trainmuseum/" + imgList[i])));
+                picString.add(i, BitmapFactory.decodeStream(assetManager.open(activityTranslate + imgList[i])));
                 System.out.print("XANADU15  " + picString.get(i) + " ");
                 //String fred = picString.get(i);
             }
