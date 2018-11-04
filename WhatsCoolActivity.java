@@ -77,7 +77,7 @@ public class WhatsCoolActivity extends FragmentActivity {
 
         try {
 
-                AssetManager assetManager = getApplicationContext().getAssets();
+                AssetManager assetManager = getAssets();
                 imgList = assetManager.list("trainmuseum");
                 System.out.println("XANADU 02" + Arrays.toString(imgList));
                 //numImages = imgList.length;
