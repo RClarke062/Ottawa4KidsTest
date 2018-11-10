@@ -54,9 +54,9 @@ public class CoolPageFragment extends Fragment{
     // add @NonNull to get rid of "not annotated paramter overrides @NonNull" warning
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        AssetManager assetManager = getContext().getAssets();
+        //AssetManager assetManager = getContext().getAssets();
         try {
-            //AssetManager assetManager = getContext().getAssets();
+            AssetManager assetManager = getContext().getAssets();
             imgList = assetManager.list(activityTranslate);
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
