@@ -1,11 +1,13 @@
 package com.robboapps.ottawa4kidstest;
 
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CoolPageFragment extends Fragment {
+public class CoolPageFragment extends Fragment{
+//public Context mContext;
+    //public constructor that gets context via import android.support.v4.app.Fragment for use with Assetmanager class
+    @Nullable
+    @Override
+    public Context getContext() {
+        return super.getContext();
+    }
 
     ImageView imageView;
     Integer numImages;
@@ -45,8 +54,9 @@ public class CoolPageFragment extends Fragment {
     // add @NonNull to get rid of "not annotated paramter overrides @NonNull" warning
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        AssetManager assetManager = getContext().getAssets();
         try {
-            AssetManager assetManager = getActivity().getApplicationContext().getAssets();
+            //AssetManager assetManager = getContext().getAssets();
             imgList = assetManager.list(activityTranslate);
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
