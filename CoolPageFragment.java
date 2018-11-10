@@ -42,6 +42,7 @@ public class CoolPageFragment extends Fragment {
     }
 
     @Override
+    // add @NonNull to get rid of "not annotated paramter overrides @NonNull" warning
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         try {
