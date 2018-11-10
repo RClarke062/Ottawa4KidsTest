@@ -25,7 +25,7 @@ public class CoolPageFragment extends Fragment{
     public Context getContext() {
         return super.getContext();
     }
-
+    AssetManager assetManager;
     ImageView imageView;
     Integer numImages;
     String[] imgList;
@@ -54,9 +54,25 @@ public class CoolPageFragment extends Fragment{
     // add @NonNull to get rid of "not annotated paramter overrides @NonNull" warning
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //AssetManager assetManager = getContext().getAssets();
+        //assetManager = getContext().getAssets();
+        //if (assetManager !=null);
+       if (getActivity() !=null) assetManager = getContext().getAssets();
+        //try{
+            //if (getActivity() !=null){
+                //assetManager = getContext().getAssets();
+            //}
+        //}catch (IOException e) {
+            //e.printStackTrace();
+        //}
+
         try {
-            AssetManager assetManager = getContext().getAssets();
+            //if (getActivity().getAssets() !=null){
+                //assetManager = getContext().getAssets();
+            //}
+            // getAssets has a warning becuase it is possible that the fragment
+            // will not be attached to the main activity.  Separate try statement does not
+            // get rid of the warning but StackOverflow said not an issue
+            assetManager = getContext().getAssets();
             imgList = assetManager.list(activityTranslate);
             System.out.println("XANADU 03" + Arrays.toString(imgList));
             numImages = imgList.length;
@@ -81,7 +97,7 @@ public class CoolPageFragment extends Fragment{
             imageView.setImageBitmap(picString.get(1));
         }
 
-/* switch as alternative to if else (does not add photos to individual swipe screens)
+/* switch as alternative to if else (does not add photos to individual swipe screens so not used)
         switch (mPosition) {
             case 0:
                 imageView.setImageBitmap(picString.get(0));
