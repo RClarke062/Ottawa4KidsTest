@@ -1,20 +1,20 @@
 package com.robboapps.ottawa4kidstest;
 
-
-import android.app.Activity;
+import android.content.res.AssetManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-//import android.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import java.io.IOException;
+import java.util.Arrays;
 
-public class WhatsCoolActivity extends AppCompatActivity {
+public class WhatsCoolActivity extends FragmentActivity {
     ViewPager viewPager;
     CoolSwipeAdaptor swipeAdaptor;
-    static final int ITEMS = 2;
+    String WhichActivity;
+    String[] imgList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,14 @@ public class WhatsCoolActivity extends AppCompatActivity {
         setContentView(R.layout.activity_whats_cool);
         viewPager = findViewById(R.id.view_pager);
         System.out.println("XANADU First");
+        WhichActivity = getIntent().getStringExtra("str1");
+        System.out.println("XANADU What was Sent" + WhichActivity);
         swipeAdaptor = new CoolSwipeAdaptor(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdaptor);
-
+        //Toast.makeText(this, getIntent().getStringExtra("str1"), Toast.LENGTH_SHORT).show();
     }
 
-    public static class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
+    public class CoolSwipeAdaptor extends FragmentStatePagerAdapter {
 
         public CoolSwipeAdaptor(FragmentManager fm) {
             super(fm);
@@ -36,15 +38,33 @@ public class WhatsCoolActivity extends AppCompatActivity {
         @Override
         public int getCount() {
 
+        try {
+
+                AssetManager assetManager = getAssets();
+                imgList = assetManager.list(WhichActivity);
+                System.out.println("XANADU 02" + Arrays.toString(imgList));
+
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+
             System.out.println("XANADU 01");
-            return ITEMS;
+            return imgList.length;
 
         }
 
         @Override
         public Fragment getItem(int pos) {
             System.out.println("XANADU 02  POS IS " + pos);
-return CoolPageFragment.newInstance(pos);
+
+            switch (pos) {
+                case 0:
+                    return CoolPageFragment.newInstance(0, WhichActivity);
+                case 1:
+                    return CoolPageFragment.newInstance(1, WhichActivity);
+                    default:
+                        return null;
+            }
 
         }
 }
