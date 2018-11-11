@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// change to commit
+
 public class CoolPageFragment extends Fragment{
 //public Context mContext;
     //public constructor that gets context via import android.support.v4.app.Fragment for use with Assetmanager class
